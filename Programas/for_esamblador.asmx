@@ -15,10 +15,10 @@
 for:
                 addi    s0,x0,0     # i = 0
                 addi    s2,x0,6     # N = 6
-for_i:          addi    s1,x0,0     # j = 0
-for_j:          slli    t0,s0,2     # offset de i
+                addi    s1,x0,0     # j = 0
+for_i:          slli    t0,s0,2     # offset de i
                 lw      t1,0(t0)    # A[i]
-                slli    t2,s1,2     # offset de j
+for_j:          slli    t2,s1,2     # offset de j
                 lw      t3,0(t2)    # A[j]
                 slt     t4,t1,t3    
                 bne     t4,x0,intercambia
@@ -27,8 +27,8 @@ intercambia:    sw      t3,0(t0)
                 sw      t1,0(t2)
 incremento_j:   addi    s1,s1,1
                 slt     t5,s1,s2
-                beq     t5,x0,for_j
+                bne     t5,x0,for_j
                 addi    s0,s0,1
                 slt     t6,s0,s2
-                beq     t6,x0,for_i
+                bne     t6,x0,for_i
 end:
