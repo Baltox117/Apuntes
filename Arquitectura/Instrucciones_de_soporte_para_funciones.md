@@ -72,5 +72,4 @@ addi    s1,x0,0     # j = 0
 * 2.2 y 4.3
 
 
-
 > __Recordatorio__ : 
